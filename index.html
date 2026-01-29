@@ -1,1 +1,252 @@
-PROJECT PAGE COMING NOT SOON...
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Rolling Sink: Bridging Limited-Horizon Training and Open-Ended Testing in Autoregressive Video Diffusion">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Rolling Sink</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FWSVCGZTG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-1FWSVCGZTG');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/bulma.min.css">
+  <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./css/twentytwenty.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="icon" href="./images/lotus_icon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <script src="./js/jquery-3.2.1.min.js"></script>
+  <script src="./js/jquery.event.move.js"></script>
+  <script src="./js/jquery.twentytwenty.js"></script>
+  <script src="./js/bulma-carousel.min.js"></script>
+  <script src="./js/bulma-slider.min.js"></script>
+  <script src="./js/fontawesome.all.min.js"></script>
+
+  <!--MathJax-->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title rolling-sink" style="font-size: 2.8rem;">Rolling Sink</h1>
+          <style>
+          .rolling-sink{
+            display: inline-block;
+            line-height: 1.2;
+            background: linear-gradient(
+              90deg,
+              #0095ff 0%,
+              #dd51cd 50%,
+              #0095ff 100%
+            );
+            -webkit-background-clip: text; background-clip: text;
+            color: transparent;
+          }
+          </style>
+          <h1 class="title is-1 publication-title" style="font-size: 2.0rem; margin-top: -10px;">Bridging <u>Limited-Horizon</u> Training and <u>Open-Ended</u> Testing in Autoregressive Video Diffusion</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://haodong2000.github.io/" target="_blank" rel="noopener noreferrer">
+                Haodong Li<sup>1</sup>
+            </a>
+            </span>
+            <span class="author-block">
+              <a href="https://www.shaotengliu.com/" target="_blank" rel="noopener noreferrer">
+                Shaoteng Liu<sup>2</sup>
+            </a>
+            </span>
+            <span class="author-block">
+              <a href="https://sites.google.com/site/zhelin625/" target="_blank" rel="noopener noreferrer">
+                Zhe Lin<sup>2</sup>
+            </a>
+            </span>
+            <span class="author-block">
+                <a href="https://cseweb.ucsd.edu/~mkchandraker/" target="_blank" rel="noopener noreferrer">
+                Manmohan Chandraker<sup>1</sup><sup style="font-size: 1.3rem;">&#9993;</sup></a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>UC San Diego</span>
+            <span class="author-block"><sup>2</sup>Adobe Research</span>
+            <!-- <br> -->
+            <span class="author-block">
+                <!-- <strong>*</strong>Equal contribution. -->
+                <sup style="font-size: 1.3rem;">&#9993;</sup>Corresponding author
+            </span>
+            <br>
+            <span class="author-block" style="font-size:1.4rem">
+              <strong>arXiv 2026</strong>
+            </span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org" target="_blank" rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf" style="font-size:20px"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org" target="_blank" rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv" style="font-size:20px"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github" style="font-size:20px"></i>
+                  </span>
+                  <span>
+                    Code
+                  </span>
+                </a>
+              </span>
+              <!-- Hugging Face Space. -->
+              <span class="link-block">
+                <a href="https://huggingface.co" target="_blank" rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon" style="font-size:20px">
+                      &#129303;
+                  </span>
+                  <span>Demo</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="Teaser_and_QC" style="margin-top: -60px;">
+  <div class="container is-max-desktop content is-centered has-text-centered">
+    <div class="content has-text-justified">
+    <p>
+      Teaser and qualitative results...
+    </p>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light" id="Abstract">
+  <div class="container is-max-desktop content is-centered has-text-centered">
+    <h2 class="title is-3">Abstract</h2>
+    <div class="content has-text-justified">
+    <p>
+      Recently, autoregressive (AR) video diffusion models has achieved remarkable performance.
+      However, due to their limited training durations a train-test gap emerges when testing at longer horizons, leading to rapid visual degradations.
+    </p><p>
+      Following Self Forcing, which studies the train-test gap <strong>within</strong> the training duration, this work studies the train-test gap <strong>beyond</strong> the training duration, i.e., the gap between the limited horizons during training and open-ended horizons during testing.
+    <!-- </p><p> -->
+      Since open-ended testing can extend far beyond any finite training window, and long-video training is computationally expensive, we pursue a training-free solution to bridge this gap.
+    </p><p>
+      To explore a training-free solution, we conduct a systematic analysis of AR cache maintenance. These insights lead to <strong class="rolling-sink-2">Rolling Sink</strong>.
+      Built on Self Forcing (trained on only 5s clips), Rolling Sink effectively scales the AR video synthesis to ultra-long durations (e.g., 5-30 minutes at 16 FPS) at test time, with consistent subjects, stable colors, coherent structures, and smooth motions.
+      As demonstrated by extensive experiments, Rolling Sink achieves superior long-horizon visual fidelity and temporal consistency compared to SOTA baselines.
+    </p>
+    </div>
+    <style>
+    .rolling-sink-2{
+      display: inline-block;
+      /* line-height: 1.2; */
+      background: linear-gradient(
+        90deg,
+        #0095ff 0%,
+        #dd51cd 50%,
+        #0095ff 100%
+      );
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+    </style>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <p>
+      Please consider citing our paper if you find it useful in your research :-)
+    </p>
+    <pre class="selectable"><code>COMING SOON...
+</code></pre>
+  </div>
+</section>
+
+<footer class="footer pt-4 pb-0">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website template based on
+            <a href="https://lotus3d.github.io/">
+            Lotus,
+            </a>
+            <a href="https://lotus-2.github.io/">
+            Lotus-2,
+            </a>
+            and
+            <a href="https://depth-any-in-any-dir.github.io/">
+            DA<sup>2</sup>.
+            </a>
+            Licensed under
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+            CC-BY-SA-4.0.
+            </a>
+            Copyright &copy; Haodong Li, 2026.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
