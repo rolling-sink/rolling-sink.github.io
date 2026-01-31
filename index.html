@@ -115,24 +115,23 @@
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>UC San Diego</span>
             <span class="author-block"><sup>2</sup>Adobe Research</span>
-            <!-- <br> -->
             <span class="author-block">
                 <!-- <strong>*</strong>Equal contribution. -->
                 <sup style="font-size: 1.3rem;">&#9993;</sup>Corresponding author
             </span>
             <br>
-            <span class="author-block" style="font-size:1.4rem">
+            <span class="author-block" style="margin-top: 5px;font-size:1.4rem">
               <strong>arXiv 2026</strong>
             </span>
           </div>
 
-          <div class="column has-text-centered">
+          <div class="column has-text-centered" style="margin-top: 12px;">
             <div class="publication-links">
               <span class="link-block">
                 <a href="https://arxiv.org" target="_blank" rel="noopener noreferrer"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                    <i class="fas fa-file-pdf" style="font-size:23px"></i>
+                    <i class="fas fa-file-pdf" style="font-size:21px"></i>
                   </span>
                   <span>Paper (Soon)</span>
                 </a>
@@ -141,7 +140,7 @@
                 <a href="https://arxiv.org" target="_blank" rel="noopener noreferrer"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                    <i class="ai ai-arxiv" style="font-size:24px"></i>
+                    <i class="ai ai-arxiv" style="font-size:23px"></i>
                   </span>
                   <span>arXiv (Soon)</span>
                 </a>
@@ -151,7 +150,7 @@
                 <a href="https://github.com" target="_blank" rel="noopener noreferrer"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                    <i class="fab fa-github" style="font-size:24px"></i>
+                    <i class="fab fa-github" style="font-size:23px"></i>
                   </span>
                   <span>Code (Soon)</span>
                 </a>
@@ -171,9 +170,9 @@
                 <a href="https://www.youtube.com/watch?v=U1eAGF_jcxI&list=PLIfXMX0d4BSJO_S3Wte7SAZpcdSFmZEvD" target="_blank" rel="noopener noreferrer"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                    <i class="fab fa-youtube" style="font-size:23px"></i>
+                    <i class="fab fa-youtube" style="font-size:24px"></i>
                   </span>
-                  <span>Gallery (5-30min Videos)</span>
+                  <span>&nbsp;Gallery (5-30min Videos)</span>
                 </a>
               </span>
             </div>
@@ -201,12 +200,12 @@
   }
   .rs-cap{
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     margin-bottom: -10px;
   }
 </style>
 
-<section class="section" id="Teaser_and_QC" style="margin-top: -60px;">
+<section class="section" id="Teaser_and_QC" style="margin-top: -80px;">
   <div class="container is-max-desktop content is-centered has-text-centered">
 
     <!-- Row 1: YouTube full width -->
@@ -221,7 +220,7 @@
           <strong class="rolling-sink-2">Rolling Sink</strong>
           <strong>(Ours)</strong>
           <br>
-          Training duration: <strong>5s</strong>
+          Training duration: <strong>5s</strong> (FPS=16, here and below)
           <br>
           Testing duration: <strong>5min</strong>
         </p>
@@ -279,7 +278,7 @@
   </div>
 </section>
 
-<section class="section hero is-light" id="Abstract">
+<section class="section hero is-light" id="Abstract" style="margin-top: -20px;">
   <div class="container is-max-desktop content is-centered has-text-centered">
     <h2 class="title is-3">Abstract</h2>
     <div class="content has-text-justified">
@@ -299,35 +298,87 @@
   </div>
 </section>
 
-<section class="section hero" id="Motivation">
+<section class="section hero" id="Motivation" style="margin-top: -20px;">
   <div class="container is-max-desktop content is-centered has-text-centered">
-    <h2 class="title is-3">Motivation</h2>
+    <h2 class="title is-3 has-text-centered">Motivation</h2>
     <div class="content has-text-justified">
-    <p>
-      COMING SOON...
-    </p>
+      <p>
+        Generating a long video (e.g., a movie) typically requires <strong>multi-shots</strong> input, i.e., a sequence of prompts.
+        Each shot typically corresponds to a single prompt, and can vary from few seconds to minutes, even hours long.
+        For instance, Steve McQueen's <a href="https://en.wikipedia.org/wiki/Hunger_(2008_film)">Hunger</a> begins with a classic 16.5 minutes dialogue shot (<a href="https://www.youtube.com/watch?v=aycGYu_8Hhw">YouTube link</a>, from <a href="https://youtu.be/aycGYu_8Hhw?si=FtKPoc_G5tkE1NU_&t=60">1:00</a> to <a href="https://youtu.be/aycGYu_8Hhw?si=NKrp7uH6VbYd7-Z7&t=1050">17:30</a>) between Bobby Sands and the priest.
+        This motivates <strong>open-ended</strong> video generation.
+      </p>
+    </div>
+    <div class="columns has-text-justified">
+      <div class="column is-5">
+        <p>
+          Though large video diffusion models (e.g., 
+          <a href="https://openai.com/index/sora-2/">Sora</a>,
+          <a href="https://wan.video/">Wan</a>,
+          <a href="https://app.klingai.com/global/release-notes/c605hp1tzd">Kling</a>,
+          <a href="https://deepmind.google/models/veo/">Veo</a>,
+          <a href="https://runwayml.com/research/introducing-runway-gen-4.5">Gen</a>) 
+          have achieved remarkable performance, they usually denoise all frames simultaneously, making them <strong>incompatible</strong> with such open-ended setting.
+          In contrast, autoregressive (AR) video diffusion models <strong>architecturally</strong> enables open-ended video generation by continuously predicting the <strong>next-frame</strong> conditioned on previous ones.
+        </p>
+        <p>
+          However, AR video diffusion models are typically trained on limited and fixed durations (e.g., 5s at 16 FPS in <a href="https://self-forcing.github.io/">Self Forcing</a>).
+          When extrapolating to long horizons, especially beyond the training duration, these models often suffer from rapid visual degradation.
+        </p>
+        <p>
+          Such AR drift is commonly attributed to error accumulation.
+          We further interpret it as a train-test gap between the <strong>limited-horizon training</strong> and <strong>open-ended testing</strong>.
+        </p>
+      </div>
+      <div class="column is-7">
+        <img src="./images/motivation.png">
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section hero" id="Methodology">
+<section class="section hero" id="Methodology" style="margin-top: -20px;">
   <div class="container is-max-desktop content is-centered has-text-centered">
     <h2 class="title is-3">Methodology</h2>
     <div class="content has-text-justified">
     <p>
-      COMING SOON...
+      Indeed, training on longer videos can mitigate this gap.
+      However, as long as the training is conducted on <strong>finite-length</strong> clips, the open-ended testing can always exceed the training window.
+      As the rollout length grows beyond this window, long-horizon drift can still occur.
+      This motivates a <strong>training-free</strong> approach to bridge limited-horizon training and open-ended testing.
+      The goal is to constantly reproduce the impressive video synthesis quality, exhibited when testing within the training duration, over ultra-long horizons.
+    </p>
+    <p>
+      Since the prompt embedding stays <strong>fixed</strong> throughout AR video synthesis, and the initial noise for each block is always drawn from the <strong>same</strong> Gaussian distribution, the <strong>context (i.e., cache)</strong> is the major factor of long-horizon AR drift.
+      Thus, for maintaining drift-free during open-ended testing, the AR cache should stay consistent with its <strong>within-duration</strong> behavior/characteristic.
     </p>
     </div>
   </div>
 </section>
 
-<section class="section hero" id="Experiments">
+<section class="section hero" id="Experiments" style="margin-top: -20px;">
   <div class="container is-max-desktop content is-centered has-text-centered">
     <h2 class="title is-3">Experiments</h2>
-    <div class="content has-text-justified">
-    <p>
-      COMING SOON...
-    </p>
+    <div class="columns has-text-justified">
+      <div class="column is-6">
+        <p>
+          Quantitative comparison of
+          <strong class="rolling-sink-2">Rolling Sink</strong>
+          with SOTA baselines on <strong>1-minute</strong> AR video synthesis using <a href="https://github.com/Vchitect/VBench/tree/master/vbench2_beta_long">VBench-Long</a>.
+        </p>
+        <img src="./images/qc_1min.png">
+      </div>
+      <div class="column is-6">
+        <p>
+          Quantitative comparison on <strong>5-minute</strong> AR video synthesis.
+          <br>
+          &nbsp;
+        </p>
+        <img src="./images/qc_5min.png">
+      </div>
+    </div>
+    <div class="columns has-text-justified">
+      <img src="./images/qc_radar.png">
     </div>
   </div>
 </section>
