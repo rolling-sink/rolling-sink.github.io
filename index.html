@@ -126,21 +126,21 @@
 <div id="refresh-scrim" aria-live="polite" aria-busy="true">
   <div id="refresh-panel" role="status">
     <p class="title">Thanks for visiting our project page!</p>
-    <p class="desc" id="refresh-desc">Please wait for 10s for everything to be loaded :-)</p>
+    <p class="desc" id="refresh-desc">Please wait for 5s for everything to be loaded :-)</p>
 
     <div class="bar" aria-hidden="true">
       <span id="refresh-bar"></span>
     </div>
 
     <div class="meta">
-      <span id="refresh-count">Refreshing in 10s</span>
+      <span id="refresh-count">Refreshing in 5s</span>
       <span>Auto refresh</span>
     </div>
   </div>
 </div>
 
 <script>
-  window.addEventListener("load", () => {
+  window.addEventListener("DOMContentLoaded", () => {
     // ✅ Only do this once per tab session
     const KEY = "did_one_time_refresh";
     if (sessionStorage.getItem(KEY) === "1") return;
