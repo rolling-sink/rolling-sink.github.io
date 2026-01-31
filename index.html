@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="./css/bulma-slider.min.css">
   <link rel="stylesheet" href="./css/twentytwenty.css">
   <link rel="stylesheet" href="./css/index.css">
-  <link rel="icon" href="./images/lotus_icon.png">
+  <link rel="icon" href="./images/icon.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
   <script src="./js/jquery-3.2.1.min.js"></script>
@@ -88,6 +88,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
+          <img src="./images/icon.png" style="width: 45px; margin-bottom: -8px;">&nbsp;&nbsp;
           <h1 class="title is-1 publication-title rolling-sink" style="font-size: 2.8rem;">Rolling Sink</h1>
           <h1 class="title is-1 publication-title" style="font-size: 2.0rem; margin-top: -20px;">Bridging <u>Limited-Horizon</u> Training and <u>Open-Ended</u> Testing in Autoregressive Video Diffusion</h1>
           <div class="is-size-5 publication-authors">
@@ -291,7 +292,7 @@
       Since open-ended testing can extend far beyond any finite training window, and long-video training is computationally expensive, we pursue a training-free solution to bridge this gap.
     </p><p>
       To explore a training-free solution, we conduct a systematic analysis of AR cache maintenance. These insights lead to <strong class="rolling-sink-2">Rolling Sink</strong>.
-      Built on Self Forcing (trained on only 5s clips), Rolling Sink effectively scales the AR video synthesis to ultra-long durations (e.g., 5-30 minutes at 16 FPS) at test time, with consistent subjects, stable colors, coherent structures, and smooth motions.
+      Built on Self Forcing (trained on only 5s clips), Rolling Sink effectively scales the AR video synthesis to ultra-long durations (e.g., 5-30 minutes) at test time, with consistent subjects, stable colors, coherent structures, and smooth motions.
       As demonstrated by extensive experiments, Rolling Sink achieves superior long-horizon visual fidelity and temporal consistency compared to SOTA baselines.
     </p>
     </div>
@@ -310,7 +311,7 @@
       </p>
     </div>
     <div class="columns has-text-justified">
-      <div class="column is-5">
+      <div class="column is-6">
         <p>
           Though large video diffusion models (e.g., 
           <a href="https://openai.com/index/sora-2/">Sora</a>,
@@ -322,7 +323,7 @@
           In contrast, autoregressive (AR) video diffusion models <strong>architecturally</strong> enables open-ended video generation by continuously predicting the <strong>next-frame</strong> conditioned on previous ones.
         </p>
         <p>
-          However, AR video diffusion models are typically trained on limited and fixed durations (e.g., 5s at 16 FPS in <a href="https://self-forcing.github.io/">Self Forcing</a>).
+          However, AR video diffusion models are typically trained on limited and fixed durations (e.g., 5s in <a href="https://self-forcing.github.io/">Self Forcing</a>).
           When extrapolating to long horizons, especially beyond the training duration, these models often suffer from rapid visual degradation.
         </p>
         <p>
@@ -330,7 +331,7 @@
           We further interpret it as a train-test gap between the <strong>limited-horizon training</strong> and <strong>open-ended testing</strong>.
         </p>
       </div>
-      <div class="column is-7">
+      <div class="column is-6">
         <img src="./images/motivation.png">
       </div>
     </div>
@@ -343,14 +344,16 @@
     <div class="content has-text-justified">
     <p>
       Indeed, training on longer videos can mitigate this gap.
-      However, as long as the training is conducted on <strong>finite-length</strong> clips, the open-ended testing can always exceed the training window.
-      As the rollout length grows beyond this window, long-horizon drift can still occur.
+      However, as long as the training is conducted on <strong>finite-length</strong> clips, the open-ended testing can always exceed the training window, and long-horizon drift can still occur.
       This motivates a <strong>training-free</strong> approach to bridge limited-horizon training and open-ended testing.
       The goal is to constantly reproduce the impressive video synthesis quality, exhibited when testing within the training duration, over ultra-long horizons.
     </p>
     <p>
       Since the prompt embedding stays <strong>fixed</strong> throughout AR video synthesis, and the initial noise for each block is always drawn from the <strong>same</strong> Gaussian distribution, the <strong>context (i.e., cache)</strong> is the major factor of long-horizon AR drift.
       Thus, for maintaining drift-free during open-ended testing, the AR cache should stay consistent with its <strong>within-duration</strong> behavior/characteristic.
+    </p>
+    <p>
+      <img src="./images/method1.png">
     </p>
     </div>
   </div>
@@ -378,7 +381,19 @@
       </div>
     </div>
     <div class="columns has-text-justified">
-      <img src="./images/qc_radar.png">
+      <div class="column is-6">
+        <img src="./images/qc_radar.png">
+      </div>
+      <div class="column is-6">
+        <p>
+          On both settings, the proposed <strong class="rolling-sink-2">Rolling Sink</strong> achieves the best average rank and obtains the top scores on most dimensions, reflecting the reduced drift and improved visual quality when testing <strong>far beyond</strong> the training window.
+          Notably, though <strong class="rolling-sink-2">Rolling Sink</strong> is built on top of <a href="https://self-forcing.github.io/">Self Forcing</a> and requires <strong>no</strong> additional training, it yields substantial performance gains.
+        </p>
+        <p>
+          Here, to ensure all methods are trained on 5s clips for fairness, <a href="https://nvlabs.github.io/LongLive/">LongLive</a>'s LoRA isn't loaded.
+          Please see paper's Sec. F for the comparisons with <a href="https://nvlabs.github.io/LongLive/">LongLive</a> (w/ LoRA).
+        </p>
+      </div>
     </div>
   </div>
 </section>
